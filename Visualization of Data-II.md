@@ -1,4 +1,4 @@
-## Exploring Data Part-II
+# Exploring Data Part-II
 
 
 This section will address the following titles:
@@ -8,7 +8,7 @@ This section will address the following titles:
 - Exploring data using visualization
  
 
-## Structure of the data
+# Structure of the data
 
 
  First of all have a glance on the data collected using the rcode.
@@ -16,13 +16,13 @@ This section will address the following titles:
 custdata<- read.csv('custdata.csv',header=T,sep=',')
 head(custdata)
 ```
-## Summary Analysis
+# Summary Analysis
 
 ```{r}
 summary(custdata)
 ```
 
-## Visualization of Data
+# Visualization of Data
 
 The use of graphics to examine data is called visualization. We try to follow William
 Cleveland's principles for scientific visualization. Details of specific plots aside, the key
@@ -43,7 +43,7 @@ data.
 - Visualization is an iterative process. Its purpose is to answer questions about the
 data.
 
-## Default plots
+# Default plots
 
 Defalt plots are easy to create. An example of a histogram is:
 
@@ -51,7 +51,7 @@ Defalt plots are easy to create. An example of a histogram is:
 hist(custdata$age,las=1,breaks = 50)
 ```
 
-## Finer plots with ggplot2 
+# Finer plots with ggplot2 
 
 we use *ggplot2* to demonstrate the visualizations and graphics; of
 course, other R visualization packages can produce similar graphics.
@@ -70,7 +70,7 @@ geom_histogram(aes(x=age),
 binwidth=3, fill="green",col='red')
 ```
 
-## Density plot using ggplot2
+# Density plot using ggplot2
 
 
 ```{r}
@@ -79,7 +79,7 @@ ggplot(custdata) + geom_density(aes(x=income)) + scale_x_continuous(labels=dolla
 
 ```
 
-## Extracting a subset of data
+# Extracting a subset of data
 
  In the following code only consider a subset of data with reasonable age and income values using *subset* function.
  
@@ -89,14 +89,14 @@ custdata2 <- subset(custdata,
 & custdata$income > 0))
 ```
 
-## Creating a scatter plot
+# Creating a scatter plot
 
 ```{r}
 ggplot(custdata2, aes(x=age, y=income)) +
 geom_point() + ylim(0, 200000)
 ```
 
-## Creating a linear fit using ggplot2
+# Creating a linear fit using ggplot2
 
 ```{r}
 ggplot(custdata2, aes(x=age, y=income)) + geom_point() +
@@ -104,7 +104,7 @@ stat_smooth(method="lm") +
 ylim(0, 200000)
 ```
 
-## Creating a lowess function to scatter plot using ggplot2
+# Creating a lowess function to scatter plot using ggplot2
 
  In R, smoothing curves are fit using the loess (or lowess) functions, which calculate
 smoothed
@@ -135,7 +135,7 @@ geom_point() + geom_smooth() +
 ylim(0, 200000)
 ```
 
-## Hexbin plot using ggplot2
+# Hexbin plot using ggplot2
 
 
 A hexbin plot is like a two-dimensional histogram. The data is divided into bins, and the
@@ -149,7 +149,7 @@ geom_smooth(color="white", se=F) +
 ylim(0,200000)
 ```
 
-## Bar charts using ggplot2
+# Bar charts using ggplot2
 
 The most straightforward way to visualize data is with a stacked bar
 chart
@@ -161,7 +161,7 @@ ggplot(custdata) + geom_bar(aes(x=marital.stat,
 fill=health.ins),position='stack')
 ```
 
-## Side by side Bar chart (dodge)
+# Side by side Bar chart (dodge)
 
 ```{r}
 ggplot(custdata) + geom_bar(aes(x=marital.stat,
@@ -169,7 +169,7 @@ fill=health.ins),
 position="dodge")
 ```
 
-## Filled bar chart
+# Filled bar chart
 ```{r}
 bp=ggplot(custdata,aes(x=marital.stat,group=health.ins,fill=health.ins))+
   geom_bar(aes(marital.stat))
@@ -193,7 +193,7 @@ bp=ggplot(custdata,aes(x=marital.stat,group=health.ins))+
 bp+geom_text(stat='count', aes(label = after_stat(scales::percent(..prop..))), vjust=0.8,position = position_stack(0.8), size = 2.5)+labs(x ="Marital status", y = "Pecentage",fill="health Insurance")+scale_y_continuous(labels = scales::percent)
 ```
 
-## Facet plot using ggplot2
+# Facet plot using ggplot2
 
 ```{r}
 ggplot(custdata2) +
@@ -201,14 +201,14 @@ geom_bar(aes(x=marital.stat), position="dodge",
 fill="brown") +
 facet_wrap(~housing.type, scales="free_y",ncol = 3) +theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
-## Descriptive analysis
+# Descriptive analysis
 
 ```{r}
 # loading external function for cross tabulation
 source("http://pcwww.liv.ac.uk/~william/R/crosstab.r")
 ```
 
-## Creating a new categorical variable using `cut` function
+# Creating a new categorical variable using `cut` function
 
 Creating am income category based on the variable income
 
