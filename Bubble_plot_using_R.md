@@ -1,4 +1,4 @@
-## Bubble Plot
+# Bubble Plot
 
 ```{r}
 # Libraries
