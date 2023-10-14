@@ -8,7 +8,7 @@
 
 
 
-## Research questions and corresponding statistical tests
+# Research questions and corresponding statistical tests
 
 
 The most popular research questions include:
@@ -36,7 +36,7 @@ The most popular research questions include:
     - Kruskal-Wallis rank sum test (non-parametric): extension of Wilcoxon rank test to compare more than two groups
 
 
-## Tesing of variablility
+# Tesing of variablility
 
 5. whether the variability of two samples differ
 
@@ -47,7 +47,7 @@ The most popular research questions include:
      -and Fligner-Killeen test (non-parametric)
 
 
-## Statistical test requirements
+# Statistical test requirements
 
 Many of the statistical procedures including correlation, regression, t-test, and analysis of variance assume some certain characteristic about the data. Generally they assume that:
 
@@ -57,28 +57,28 @@ Many of the statistical procedures including correlation, regression, t-test, an
 These assumptions should be taken seriously to draw reliable interpretation and conclusions of the research. These tests - correlation, t-test and ANOVA - are called parametric tests, because their validity depends on the distribution of the data.
 
 
-## Pretest for statistical testing
+# Pretest for statistical testing
 
 - For large samples, parametric test can be used
 
 - Use **Shapiro-Wilk's** significance test comparing the sample distribution to a normal one in order to ascertain whether data show or not a serious deviation from normality
 
-## A simple trick to attain normality!!
+# A simple trick to attain normality!!
 
 A statistically acceptable trick is to form a large ($n>100$) sample for analysis. The rest is with your statistical analysis tool. 
 
 
-##  Normality Test in R
+#  Normality Test in R
 
 Normality and the other assumptions made by parametric tests should be taken seriously to draw reliable interpretation and conclusions of the research.
 
-### Packages required
+## Packages required
 
 - *dplyr* for data manipulation
 
 - *ggpubr*  for an easy ggplot2-based data visualization
 
-## Example
+# Example
 
 Choose the ToothGrowth data and test for normality:
 
@@ -93,7 +93,7 @@ dplyr::sample_n(my_data, 10)
  For large sample these pretests are laxuaries.However, to be consistent, normality can be checked by visual inspection [normal plots (histogram), Q-Q plot (quantile-quantile plot)] or by significance tests].
 
 
-## Normality test
+# Normality test
 
 *Approach*:  Use a significance test comparing the sample distribution to a normal one in order to ascertain whether data show or not a serious deviation from normality.
 
@@ -106,10 +106,10 @@ shapiro.test(my_data$len)
 **Info**: From the output, the p-value > 0.05 implying that the distribution of the data are not significantly different from normal distribution. In other words, we can assume the normality.
 
 
-##Visual methods
+#Visual methods
 Density plot and Q-Q plot can be used to check normality visually.
 
-### Density Plot
+## Density Plot
 
 ```{r}
 library("ggpubr")
@@ -118,13 +118,13 @@ ggdensity(my_data$len,
           xlab = "Tooth length")
 ```
 
-## Q-Q Plot
+# Q-Q Plot
 
 ```{r}
 ggqqplot(my_data$len)
 ```
 
-## qqPlot()
+# qqPlot()
 
 It's also possible to use the function qqPlot() [in car package]:
 
@@ -134,7 +134,7 @@ qqPlot(my_data$len)
 ```
 
 
-## Takeaway from the session
+# Takeaway from the session
 
 -Always form good research questions and hypothesis for analysis.
 
